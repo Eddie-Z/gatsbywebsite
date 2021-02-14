@@ -9,11 +9,12 @@ import RoleList from './role-list'
 
 import styles from './project.module.css'
 
-function Project (props) {
-  const { _rawBody, title, categories, mainImage, members, publishedAt, relatedProjects } = props
+function Project(props) {
+  console.log(props)
+  const { _rawBody, title, categories, members, startedAt, endedAt } = props
   return (
     <article className={styles.root}>
-      {props.mainImage && mainImage.asset && (
+      {/* {props.mainImage && mainImage.asset && (
         <div className={styles.mainImage}>
           <img
             src={imageUrlFor(buildImageObj(mainImage))
@@ -24,7 +25,7 @@ function Project (props) {
             alt={mainImage.alt}
           />
         </div>
-      )}
+      )} */}
       <Container>
         <div className={styles.grid}>
           <div className={styles.mainContent}>
@@ -32,25 +33,25 @@ function Project (props) {
             {_rawBody && <BlockContent blocks={_rawBody || []} />}
           </div>
           <aside className={styles.metaContent}>
-            {publishedAt && (
+            {/* {publishedAt && (
               <div className={styles.publishedAt}>
                 {differenceInDays(new Date(publishedAt), new Date()) > 3
                   ? distanceInWords(new Date(publishedAt), new Date())
                   : format(new Date(publishedAt), 'MMMM Do YYYY')}
               </div>
-            )}
-            {members && <RoleList items={members} title='Authors' />}
+            )} */}
+            <h1> {startedAt}</h1>
+
+            <h1> {endedAt}</h1>
+
+            {/* {members && <RoleList items={members} title="Authors" />}
             {categories && (
               <div className={styles.categories}>
                 <h3 className={styles.categoriesHeadline}>Categories</h3>
-                <ul>
-                  {categories.map(category => (
-                    <li key={category._id}>{category.title}</li>
-                  ))}
-                </ul>
+                <ul>{endedAt}</ul>
               </div>
-            )}
-            {relatedProjects && (
+            )} */}
+            {/* {relatedProjects && (
               <div className={styles.relatedProjects}>
                 <h3 className={styles.relatedProjectsHeadline}>Related projects</h3>
                 <ul>
@@ -61,7 +62,7 @@ function Project (props) {
                   ))}
                 </ul>
               </div>
-            )}
+            )} */}
           </aside>
         </div>
       </Container>
