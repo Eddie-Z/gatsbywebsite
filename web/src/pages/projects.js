@@ -11,7 +11,7 @@ import { responsiveTitle1 } from '../components/typography.module.css'
 
 export const query = graphql`
   query ProjectsPageQuery {
-    projects: allSanityProject(limit: 12) {
+    projects: allSanityPersonalproject(limit: 12) {
       edges {
         node {
           id
@@ -43,6 +43,7 @@ const ProjectsPage = props => {
   }
   const projectNodes =
     data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
+
   return (
     <Layout>
       <SEO title="Projects" />

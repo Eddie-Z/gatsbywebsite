@@ -1,6 +1,6 @@
 export default {
-  name: "project",
-  title: "Project",
+  name: "personalproject",
+  title: "Personal Project",
   type: "document",
   fields: [
     {
@@ -21,11 +21,6 @@ export default {
     {
       name: "startedAt",
       title: "Started at",
-      type: "datetime"
-    },
-    {
-      name: "endedAt",
-      title: "Ended at",
       type: "datetime"
     },
     {
