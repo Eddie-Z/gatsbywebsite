@@ -44,12 +44,16 @@ const ProjectsPage = props => {
   const projectNodes =
     data && data.projects && mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
 
+  const isPersonalProject = true
+
   return (
     <Layout>
       <SEO title="Projects" />
       <Container>
         <h1 className={responsiveTitle1}>Projects</h1>
-        {projectNodes && projectNodes.length > 0 && <ProjectPreviewGrid nodes={projectNodes} />}
+        {projectNodes && projectNodes.length > 0 && (
+          <ProjectPreviewGrid nodes={projectNodes} isPersonalProject={isPersonalProject} />
+        )}
       </Container>
     </Layout>
   )

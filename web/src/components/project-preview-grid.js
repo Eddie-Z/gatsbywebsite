@@ -23,7 +23,7 @@ function ProjectPreviewGrid(props) {
         {props.nodes &&
           props.nodes.map(node => (
             <li key={node.id}>
-              <ProjectPreview {...node} />
+              <ProjectPreview {...node} isPersonalProject={props.isPersonalProject} />
             </li>
           ))}
       </ul>
