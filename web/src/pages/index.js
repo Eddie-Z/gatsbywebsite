@@ -7,6 +7,7 @@ import GraphQLErrorList from '../components/graphql-error-list'
 import ProjectPreviewGrid from '../components/project-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
+import Introduction from '../components/introduction'
 
 export const query = graphql`
   query IndexPageQuery {
@@ -15,8 +16,13 @@ export const query = graphql`
       description
       keywords
     }
-
-    projects: allSanityProject(limit: 6, sort: { order: DESC }) {
+    page: sanityPage(_id: { regex: "/(drafts.|)about/" }) {
+      id
+      title
+      email
+      _rawBody
+    }
+    projects: allSanityProject(limit: 6) {
       edges {
         node {
           id
@@ -43,7 +49,7 @@ export const query = graphql`
             alt
           }
           title
-          _rawExcerpt
+
           slug {
             current
           }
@@ -51,7 +57,7 @@ export const query = graphql`
       }
     }
 
-    posts: allSanityPost(limit: 6, sort: { fields: [publishedAt], order: DESC }) {
+    posts: allSanityPost(limit: 6) {
       edges {
         node {
           id
@@ -118,7 +124,7 @@ const IndexPage = props => {
     <Layout>
       <SEO title={site.title} description={site.description} keywords={site.keywords} />
       <Container>
-        <h1>Hello</h1>
+        <Introduction data={data}></Introduction>
         <h1 hidden>Welcome to {site.title}</h1>
         {projectNodes && (
           <ProjectPreviewGrid
@@ -127,13 +133,13 @@ const IndexPage = props => {
             browseMoreHref="/projects/"
           />
         )}
-        {postNodes && (
+        {/* {postNodes && (
           <BlogPostPreviewGrid
             title="Latest blog posts"
             nodes={postNodes}
             browseMoreHref="/blog/"
           />
-        )}
+        )} */}
       </Container>
     </Layout>
   )

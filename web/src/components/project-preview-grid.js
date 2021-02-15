@@ -4,10 +4,13 @@ import ProjectPreview from './project-preview'
 
 import styles from './project-preview-grid.module.css'
 
-function ProjectPreviewGrid (props) {
+import { responsiveTitle1, responsiveTitle2 } from '../components/typography.module.css'
+
+function ProjectPreviewGrid(props) {
   return (
     <div className={styles.root}>
-      {props.title && (
+      <h1 className={responsiveTitle1}>Experience</h1>
+      {/* {props.title && (
         <h2 className={styles.headline}>
           {props.browseMoreHref ? (
             <Link to={props.browseMoreHref}>{props.title}</Link>
@@ -15,7 +18,7 @@ function ProjectPreviewGrid (props) {
             props.title
           )}
         </h2>
-      )}
+      )} */}
       <ul className={styles.grid}>
         {props.nodes &&
           props.nodes.map(node => (
@@ -24,11 +27,11 @@ function ProjectPreviewGrid (props) {
             </li>
           ))}
       </ul>
-      {props.browseMoreHref && (
+      {/* {props.browseMoreHref && (
         <div className={styles.browseMoreNav}>
           <Link to={props.browseMoreHref}>Browse more</Link>
         </div>
-      )}
+      )} */}
     </div>
   )
 }
