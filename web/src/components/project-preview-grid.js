@@ -9,7 +9,7 @@ import { responsiveTitle1, responsiveTitle2 } from '../components/typography.mod
 function ProjectPreviewGrid(props) {
   return (
     <div className={styles.root}>
-      <h1 className={responsiveTitle1}>Experience</h1>
+      <h1 className={responsiveTitle1}>{props.isPersonalProject ? '' : 'Experience.'}</h1>
       {/* {props.title && (
         <h2 className={styles.headline}>
           {props.browseMoreHref ? (

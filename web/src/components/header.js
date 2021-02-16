@@ -19,16 +19,20 @@ const Header = ({ onHideNav, onShowNav, showNav, siteTitle }) => (
       <nav className={cn(styles.nav, showNav && styles.showNav)}>
         <ul>
           <li>
-            <Link to="/about/">Services</Link>
+            <Link to="/services/">Services</Link>
           </li>
           <li>
             <Link to="/projects/">Personal Projects</Link>
           </li>
           <li>
-            <Link to="/blog/">Github</Link>
+            <a target="_blank" href="https://github.com/Eddie-Z">
+              Github
+            </a>
           </li>
           <li>
-            <Link to="/contact/">Linkedin</Link>
+            <a target="_blank" href="https://www.linkedin.com/in/eddie-zheng-356092201/">
+              Linkedin
+            </a>
           </li>
         </ul>
       </nav>

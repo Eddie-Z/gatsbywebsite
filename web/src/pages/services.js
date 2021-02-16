@@ -4,6 +4,7 @@ import BlockContent from '../components/block-content'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
 import PeopleGrid from '../components/people-grid'
+import ServicePreviewGrid from '../components/services-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
@@ -11,32 +12,28 @@ import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
 import { responsiveTitle1, responsiveTitle2 } from '../components/typography.module.css'
 
 export const query = graphql`
-  query AboutPageQuery {
-    page: sanityPage(_id: { regex: "/(drafts.|)about/" }) {
-      id
-      title
-      email
-      _rawBody
-    }
-    people: allSanityPerson {
+  query ServicePageQuery {
+    services: allSanityServices {
       edges {
         node {
           id
-          image {
+          title
+          mainImage {
             asset {
               _id
             }
+            alt
           }
-          name
-          _rawBio
+          _rawBody
         }
       }
     }
   }
 `
 
-const AboutPage = props => {
+const ServicePage = props => {
   const { data, errors } = props
+  console.log(data)
 
   if (errors) {
     return (
@@ -46,10 +43,12 @@ const AboutPage = props => {
     )
   }
 
-  const page = data && data.page
+  const page = data && data.services
   console.log(page)
-  const personNodes =
-    data && data.people && mapEdgesToNodes(data.people).filter(filterOutDocsWithoutSlugs)
+
+  const projectNodes = (data || {}).services ? mapEdgesToNodes(data.services) : []
+
+  console.log(projectNodes)
 
   if (!page) {
     throw new Error(
@@ -61,13 +60,14 @@ const AboutPage = props => {
     <Layout>
       <SEO title={page.title} />
       <Container>
-        <h1 className={responsiveTitle1}>{page.title}</h1>
+        {/* <h1 className={responsiveTitle1}>{page.title}</h1>
         <BlockContent blocks={page._rawBody || []} />
-        {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title="People" />}
-        <h2 className={responsiveTitle2}>{page.email}</h2>
+        <h2 className={responsiveTitle2}>{page.email}</h2> */}
+
+        {projectNodes && <ServicePreviewGrid nodes={projectNodes} />}
       </Container>
     </Layout>
   )
 }
 
-export default AboutPage
+export default ServicePage
