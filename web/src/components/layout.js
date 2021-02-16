@@ -8,7 +8,7 @@ const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitl
   <>
     <Header siteTitle={siteTitle} onHideNav={onHideNav} onShowNav={onShowNav} showNav={showNav} />
     <div className={styles.content}>{children}</div>
-    <footer className={styles.footer}>
+    {/* <footer className={styles.footer}>
       <div className={styles.footerWrapper}>
         <div className={styles.companyAddress}>
           {companyInfo && (
@@ -35,7 +35,7 @@ const Layout = ({ children, companyInfo, onHideNav, onShowNav, showNav, siteTitl
           <a href='https://www.gatsbyjs.org'>Gatsby</a>
         </div>
       </div>
-    </footer>
+    </footer> */}
   </>
 )
 
