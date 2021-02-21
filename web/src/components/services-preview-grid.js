@@ -1,14 +1,11 @@
-import { Link } from 'gatsby'
 import React from 'react'
-import ProjectPreview from './project-preview'
+
 import { cn, buildImageObj } from '../lib/helpers'
 import { responsiveTitle3 } from './typography.module.css'
 import BlockText from './block-text'
 import { imageUrlFor } from '../lib/image-url'
 
 import styles from './project-preview-grid.module.css'
-
-import { responsiveTitle1, responsiveTitle2 } from '../components/typography.module.css'
 
 function ServicePreviewGrid(props) {
   console.log(props)
