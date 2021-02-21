@@ -1,15 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import BlockContent from '../components/block-content'
 import Container from '../components/container'
 import GraphQLErrorList from '../components/graphql-error-list'
-import PeopleGrid from '../components/people-grid'
 import ServicePreviewGrid from '../components/services-preview-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
-import { mapEdgesToNodes, filterOutDocsWithoutSlugs } from '../lib/helpers'
+import { mapEdgesToNodes } from '../lib/helpers'
 
-import { responsiveTitle1, responsiveTitle2 } from '../components/typography.module.css'
+import { responsiveTitle1 } from '../components/typography.module.css'
 
 export const query = graphql`
   query ServicePageQuery {
@@ -61,10 +59,6 @@ const ServicePage = props => {
       <SEO title={page.title} />
       <Container>
         <h1 className={responsiveTitle1}>Services</h1>
-        {/* <h1 className={responsiveTitle1}>{page.title}</h1>
-        <BlockContent blocks={page._rawBody || []} />
-        <h2 className={responsiveTitle2}>{page.email}</h2> */}
-
         {projectNodes && <ServicePreviewGrid nodes={projectNodes} />}
       </Container>
     </Layout>

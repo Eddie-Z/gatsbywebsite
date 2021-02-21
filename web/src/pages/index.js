@@ -56,42 +56,6 @@ export const query = graphql`
         }
       }
     }
-
-    posts: allSanityPost(limit: 6) {
-      edges {
-        node {
-          id
-          publishedAt
-          mainImage {
-            crop {
-              _key
-              _type
-              top
-              bottom
-              left
-              right
-            }
-            hotspot {
-              _key
-              _type
-              x
-              y
-              height
-              width
-            }
-            asset {
-              _id
-            }
-            alt
-          }
-          title
-          _rawExcerpt
-          slug {
-            current
-          }
-        }
-      }
-    }
   }
 `
 
@@ -108,9 +72,7 @@ const IndexPage = props => {
   }
 
   const site = (data || {}).site
-  const postNodes = (data || {}).posts
-    ? mapEdgesToNodes(data.posts).filter(filterOutDocsWithoutSlugs)
-    : []
+
   const projectNodes = (data || {}).projects
     ? mapEdgesToNodes(data.projects).filter(filterOutDocsWithoutSlugs)
     : []
@@ -135,13 +97,6 @@ const IndexPage = props => {
             browseMoreHref="/projects/"
           />
         )}
-        {/* {postNodes && (
-          <BlogPostPreviewGrid
-            title="Latest blog posts"
-            nodes={postNodes}
-            browseMoreHref="/blog/"
-          />
-        )} */}
       </Container>
     </Layout>
   )
