@@ -14,15 +14,6 @@ function ServicePreviewGrid(props) {
   console.log(props)
   return (
     <div className={styles.root}>
-      {/* {props.title && (
-        <h2 className={styles.headline}>
-          {props.browseMoreHref ? (
-            <Link to={props.browseMoreHref}>{props.title}</Link>
-          ) : (
-            props.title
-          )}
-        </h2>
-      )} */}
       <ul className={styles.grid}>
         {props.nodes &&
           props.nodes.map(node => (
@@ -42,15 +33,9 @@ function ServicePreviewGrid(props) {
                   <BlockText blocks={node._rawBody} />
                 </div>
               )}
-              {/* <ProjectPreview {...node} isPersonalProject={props.isPersonalProject} /> */}
             </li>
           ))}
       </ul>
-      {/* {props.browseMoreHref && (
-        <div className={styles.browseMoreNav}>
-          <Link to={props.browseMoreHref}>Browse more</Link>
-        </div>
-      )} */}
     </div>
   )
 }
