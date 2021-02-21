@@ -5,7 +5,9 @@ import { responsiveTitle3 } from './typography.module.css'
 import BlockText from './block-text'
 import { imageUrlFor } from '../lib/image-url'
 
-import styles from './project-preview-grid.module.css'
+import ServicePreview from './service-preview'
+
+import styles from './services-preview-grid.module.css'
 
 function ServicePreviewGrid(props) {
   console.log(props)
@@ -15,21 +17,7 @@ function ServicePreviewGrid(props) {
         {props.nodes &&
           props.nodes.map(node => (
             <li key={node.id}>
-              {node.mainImage && node.mainImage.asset && (
-                <img
-                  src={imageUrlFor(buildImageObj(node.mainImage))
-                    .width(450)
-                    .height(Math.floor((9 / 16) * 600))
-                    .url()}
-                  alt={node.mainImage.alt}
-                />
-              )}
-              <h3 className={cn(responsiveTitle3, styles.title)}>{node.title}</h3>
-              {node._rawBody && (
-                <div className={styles.excerpt}>
-                  <BlockText blocks={node._rawBody} />
-                </div>
-              )}
+              <ServicePreview {...node} />
             </li>
           ))}
       </ul>
