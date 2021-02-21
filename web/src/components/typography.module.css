@@ -20,8 +20,6 @@
   --font-title1-line-height: calc(56 / 44);
 }
 
-
-
 /*
  * Statically sized elements
  */
@@ -62,8 +60,6 @@
   text-transform: uppercase;
 }
 
-
-
 /*
  * Responsively sized elements
  */
@@ -89,7 +85,7 @@
 }
 
 .responsiveTitle1 {
-  font-weight: 900;
+  font-weight: 600;
   font-size: var(--font-title3-size);
   line-height: var(--font-title3-line-height);
   margin: 1rem 0 2rem;
@@ -126,6 +122,25 @@
   font-weight: 900;
   font-size: var(--font-large-size);
   line-height: var(--font-large-line-height);
+  margin: 1rem 0 0.5rem;
+
+  @media (--media-min-small) {
+    font-size: var(--font-large-size);
+    line-height: var(--font-large-line-height);
+  }
+
+  @media (--media-min-medium) {
+    font-size: var(--font-title3-size);
+    line-height: var(--font-title3-line-height);
+  }
+}
+
+.emailTitle {
+  font-weight: 0;
+  font-size: var(--font-large-size);
+  line-height: var(--font-large-line-height);
+  text-decoration-line: underline;
+  text-underline-offset: 4px;
   margin: 1rem 0 0.5rem;
 
   @media (--media-min-small) {

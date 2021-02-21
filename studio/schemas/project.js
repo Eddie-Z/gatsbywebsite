@@ -29,6 +29,11 @@ export default {
       type: "datetime"
     },
     {
+      name: "role",
+      title: "Role",
+      type: "string"
+    },
+    {
       name: "mainImage",
       title: "Main image",
       type: "mainImage"

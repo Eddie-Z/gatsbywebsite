@@ -12,6 +12,7 @@ export const query = graphql`
       id
       startedAt
       endedAt
+      role
       mainImage {
         crop {
           _key

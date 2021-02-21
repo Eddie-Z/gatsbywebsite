@@ -6,7 +6,7 @@ import PeopleGrid from '../components/people-grid'
 import SEO from '../components/seo'
 import Layout from '../containers/layout'
 
-import { responsiveTitle1, responsiveTitle2 } from '../components/typography.module.css'
+import { responsiveTitle1, emailTitle } from '../components/typography.module.css'
 
 const Introduction = props => {
   const { data, errors } = props
@@ -35,7 +35,7 @@ const Introduction = props => {
       <h1 className={responsiveTitle1}>{page.title}</h1>
       <BlockContent blocks={page._rawBody || []} />
       {/* {personNodes && personNodes.length > 0 && <PeopleGrid items={personNodes} title="People" />} */}
-      <h2 className={responsiveTitle2}>{page.email}</h2>
+      <h2 className={emailTitle}>{page.email}</h2>
     </Container>
   )
 }

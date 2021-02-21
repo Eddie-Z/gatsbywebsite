@@ -11,6 +11,7 @@ export const query = graphql`
     project: sanityPersonalproject(id: { eq: $id }) {
       id
       startedAt
+      github
       mainImage {
         crop {
           _key

@@ -32,6 +32,11 @@ export default {
       name: "body",
       title: "Body",
       type: "blockContent"
+    },
+    {
+      name: "github",
+      title: "Github",
+      type: "string"
     }
   ]
 };

@@ -60,6 +60,7 @@ const ServicePage = props => {
     <Layout>
       <SEO title={page.title} />
       <Container>
+        <h1 className={responsiveTitle1}>Services</h1>
         {/* <h1 className={responsiveTitle1}>{page.title}</h1>
         <BlockContent blocks={page._rawBody || []} />
         <h2 className={responsiveTitle2}>{page.email}</h2> */}
